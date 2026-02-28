@@ -27,26 +27,25 @@ public class CommentService {
     private final UserRepository userRepository;
     private final PostRepository postRepository;
 
-    public CommentService(CommentRepository commentRepository,
-                          UserRepository userRepository,
-                          PostRepository postRepository) {
+    public CommentService(CommentRepository commentRepository, UserRepository userRepository, PostRepository postRepository) {
         this.commentRepository = commentRepository;
         this.userRepository = userRepository;
         this.postRepository = postRepository;
     }
 
     public Page<CommentEntity> findAll(Pageable pageable) {
+        LOGGER.info("Fetching comment page={} size={}", pageable.getPageNumber(), pageable.getPageSize());
         return commentRepository.findAll(pageable);
     }
 
     public Optional<CommentEntity> findById(Long id) {
+        LOGGER.info("Fetching comment by id={}", id);
         return commentRepository.findById(id);
     }
 
     public CommentEntityDto create(CreateCommentEntityDto dto) {
 
-        LOGGER.info("Creating comment for post={} by user={}",
-                dto.postId(), dto.userId());
+        LOGGER.info("Creating comment for post={} by user={}", dto.postId(), dto.userId());
 
         UserEntity user = userRepository.findById(dto.userId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -66,6 +65,7 @@ public class CommentService {
     }
 
     public Optional<CommentEntityDto> update(Long id, CreateCommentEntityDto dto) {
+        LOGGER.info("Updating comment for post={} by user={}", dto.postId(), dto.userId());
         return commentRepository.findById(id).map(existing -> {
 
             existing.setContent(dto.content());
@@ -76,6 +76,7 @@ public class CommentService {
     }
 
     public boolean delete(Long id) {
+        LOGGER.info("Deleting comment id={}", id);
         if (!commentRepository.existsById(id)) {
             return false;
         }
@@ -91,5 +92,27 @@ public class CommentService {
                 entity.getUser().getId(),
                 entity.getPost().getId()
         );
+    }
+
+    //FIND ALL COMMENTS BY POST ID
+    public Page<CommentEntityDto> findByPostId(Long postId, Pageable pageable) {
+
+        if (!postRepository.existsById(postId)) {
+            throw new RuntimeException("Post not found");
+        }
+
+        return commentRepository.findByPostId(postId, pageable)
+                .map(this::mapToDto);
+    }
+
+    //FIND ALL COMMENTS BY USER ID
+    public Page<CommentEntityDto> findByUserId(Long userId, Pageable pageable) {
+
+        if (!userRepository.existsById(userId)) {
+            throw new RuntimeException("User not found");
+        }
+
+        return commentRepository.findByUserId(userId, pageable)
+                .map(this::mapToDto);
     }
 }
