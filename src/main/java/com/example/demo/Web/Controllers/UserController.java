@@ -1,5 +1,6 @@
 package com.example.demo.Web.Controllers;
 
+import com.example.demo.Domain.CommentEntity;
 import com.example.demo.Domain.Enums.UserStatusEnum;
 import com.example.demo.Domain.UserEntity;
 import com.example.demo.Service.CommentService;
@@ -54,9 +55,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/comments")
-    public Page<CommentEntityDto> getCommentsByUser(
-            @PathVariable Long id,
-            Pageable pageable) {
+    public Page<CommentEntity> getCommentsByUser(@PathVariable Long id, Pageable pageable) {
 
         return commentService.findByUserId(id, pageable);
     }
