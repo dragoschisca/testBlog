@@ -95,24 +95,22 @@ public class CommentService {
     }
 
     //FIND ALL COMMENTS BY POST ID
-    public Page<CommentEntityDto> findByPostId(Long postId, Pageable pageable) {
+// FIND ALL COMMENTS BY POST ID
+    public Page<CommentEntity> findByPostId(Long postId, Pageable pageable) {
 
-        if (!postRepository.existsById(postId)) {
-            throw new RuntimeException("Post not found");
-        }
+        postRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
 
-        return commentRepository.findByPostId(postId, pageable)
-                .map(this::mapToDto);
+        return commentRepository.findByPostId(postId, pageable);
     }
 
     //FIND ALL COMMENTS BY USER ID
-    public Page<CommentEntityDto> findByUserId(Long userId, Pageable pageable) {
+// FIND ALL COMMENTS BY USER ID
+    public Page<CommentEntity> findByUserId(Long userId, Pageable pageable) {
 
-        if (!userRepository.existsById(userId)) {
-            throw new RuntimeException("User not found");
-        }
+        userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return commentRepository.findByUserId(userId, pageable)
-                .map(this::mapToDto);
+        return commentRepository.findByUserId(userId, pageable);
     }
 }
