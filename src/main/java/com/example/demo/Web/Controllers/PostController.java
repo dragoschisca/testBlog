@@ -1,5 +1,6 @@
 package com.example.demo.Web.Controllers;
 
+import com.example.demo.Domain.CommentEntity;
 import com.example.demo.Domain.Enums.PostStatusEnum;
 import com.example.demo.Domain.PostEntity;
 import com.example.demo.Service.CommentService;
@@ -39,7 +40,7 @@ public class PostController {
     }
 
     @GetMapping("/{id}/comments")
-    public Page<CommentEntityDto> getCommentsForPost(
+    public Page<CommentEntity> getCommentsForPost(
             @PathVariable Long id,
             Pageable pageable) {
 
