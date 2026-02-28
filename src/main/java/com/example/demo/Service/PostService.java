@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Domain.Enums.PostStatusEnum;
 import com.example.demo.Domain.PostEntity;
 import com.example.demo.Domain.PostStatusEntity;
 import com.example.demo.Domain.UserEntity;
@@ -48,7 +49,7 @@ public class PostService {
         UserEntity user = userRepository.findById(dto.userId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        PostStatusEntity defaultStatus = postStatusRepository.findById("DRAFT")
+        PostStatusEntity defaultStatus = postStatusRepository.findById(PostStatusEnum.DRAFT.name())
                 .orElseThrow(() -> new RuntimeException("Default post status not found"));
 
         PostEntity entity = new PostEntity();
@@ -75,6 +76,22 @@ public class PostService {
 
             return mapToDto(existing);
         });
+    }
+
+    public PostEntityDto changeStatus(Long postId, PostStatusEnum newStatus) {
+
+        PostEntity post = postRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
+
+        PostStatusEntity status = postStatusRepository.findById(newStatus.name())
+                .orElseThrow(() -> new RuntimeException("Status not found"));
+
+        post.setStatus(status);
+        post.setUpdatedTime(LocalDateTime.now());
+
+        postRepository.save(post);
+
+        return mapToDto(post);
     }
 
     public boolean delete(Long id) {

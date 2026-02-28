@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Domain.Enums.UserStatusEnum;
 import com.example.demo.Domain.UserEntity;
 import com.example.demo.Domain.UserStatusEntity;
 import com.example.demo.Repository.UserRepository;
@@ -46,7 +47,7 @@ public class UserService {
         UserEntity entity = new UserEntity();
         applyDto(entity, user);
 
-        UserStatusEntity defaultStatus = userStatusRepository.findById("ACTIVE")
+        UserStatusEntity defaultStatus = userStatusRepository.findById(UserStatusEnum.ACTIVE.name())
                 .orElseThrow(() -> new RuntimeException("Default user status not found"));
 
         entity.setStatus(defaultStatus);
@@ -64,6 +65,22 @@ public class UserService {
             return userRepository.findDtoById(id)
                     .orElseThrow(() -> new IllegalStateException("Updated user not found id=" + id));
         });
+    }
+
+    public UserEntityDto changeStatus(Long userId, UserStatusEnum newStatus) {
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        UserStatusEntity status = userStatusRepository
+                .findById(newStatus.name())
+                .orElseThrow(() -> new RuntimeException("Status not found"));
+
+        user.setStatus(status);
+        userRepository.save(user);
+
+        return userRepository.findDtoById(userId)
+                .orElseThrow(() -> new IllegalStateException("User not found after update"));
     }
 
     public Optional<UserEntityDto> patch(Long id, CreateUserEntityDto incoming) {
