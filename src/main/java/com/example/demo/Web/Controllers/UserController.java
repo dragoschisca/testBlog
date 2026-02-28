@@ -2,7 +2,9 @@ package com.example.demo.Web.Controllers;
 
 import com.example.demo.Domain.Enums.UserStatusEnum;
 import com.example.demo.Domain.UserEntity;
+import com.example.demo.Service.CommentService;
 import com.example.demo.Service.UserService;
+import com.example.demo.Web.Dto.Comment.CommentEntityDto;
 import com.example.demo.Web.Dto.PageResponse;
 import com.example.demo.Web.Dto.User.CreateUserEntityDto;
 import com.example.demo.Web.Dto.User.UserEntityDto;
@@ -19,9 +21,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final CommentService commentService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, CommentService commentService) {
         this.userService = userService;
+        this.commentService = commentService;
     }
     @GetMapping
     public PageResponse<UserEntity> getAll(Pageable pageable) {
@@ -47,6 +51,14 @@ public class UserController {
         return userService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @GetMapping("/{id}/comments")
+    public Page<CommentEntityDto> getCommentsForPost(
+            @PathVariable Long id,
+            Pageable pageable) {
+
+        return commentService.findByPostId(id, pageable);
     }
 
     @PostMapping
