@@ -18,12 +18,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByEmail(String email);
 
-    @Query(
-            value = "SELECT first_name, last_name FROM users WHERE email = :email",
-            nativeQuery = true
-    )
-    Optional<UserEntityProjection> findDtoByEmail(@Param("email") String email);
-
     @Query("""
         SELECT new com.example.demo.Web.Dto.User.UserEntityDto(
             u.id,
