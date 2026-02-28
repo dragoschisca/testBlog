@@ -7,8 +7,8 @@ Aceasta este aplicația **Blog** construită cu Spring Boot, care rulează într
 ## 🛠️ Cerințe
 
 - Docker și Docker Compose instalate pe sistem
-- Maven (sau Gradle) pentru build local Java
-- Cont Docker Hub (dacă vrei să împingi imaginea)
+- Maven pentru build local Java
+- Cont Docker Hub (pentru a încărca imaginea)
 
 ---
 
@@ -16,7 +16,7 @@ Aceasta este aplicația **Blog** construită cu Spring Boot, care rulează într
 -Blog/
 --- 
 - ├─ src/ # cod sursă Spring Boot
-- ├─ target/ # build Maven/Gradle (conține jar-ul)
+- ├─ target/ # build Maven
 - ├─ Dockerfile # imagine aplicație
 - ├─ docker-compose.yml # pentru DB + aplicație
 - └─ src/main/resources/application.properties
@@ -103,7 +103,7 @@ Din directorul rădăcină al proiectului rulăm în Terminal:
 ```properties
 mvn clean package
 ```
-Vei obține target/demo-0.0.1-SNAPSHOT.jar.
+Vom obține target/demo-0.0.1-SNAPSHOT.jar.
 
 ### 6️⃣ Construirea imaginii Docker
 
@@ -130,11 +130,13 @@ Acces aplicație:
 ```properties
 http://localhost:8080
 ```
+
 Login Spring Security:
 ```properties
 Username: admin
 Password: admin
 ```
+
 ## 8️⃣ Oprirea aplicației
 
 În foreground:
