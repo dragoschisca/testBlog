@@ -2,7 +2,9 @@ package com.example.demo.Web.Controllers;
 
 import com.example.demo.Domain.Enums.PostStatusEnum;
 import com.example.demo.Domain.PostEntity;
+import com.example.demo.Service.CommentService;
 import com.example.demo.Service.PostService;
+import com.example.demo.Web.Dto.Comment.CommentEntityDto;
 import com.example.demo.Web.Dto.Post.CreatePostEntityDto;
 import com.example.demo.Web.Dto.Post.PostEntityDto;
 import org.springframework.data.domain.Page;
@@ -17,9 +19,11 @@ import java.util.Optional;
 public class PostController {
 
     private final PostService postService;
+    private final CommentService commentService;
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, CommentService commentService) {
         this.postService = postService;
+        this.commentService = commentService;
     }
 
     @GetMapping
@@ -32,6 +36,14 @@ public class PostController {
         return postService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{id}/comments")
+    public Page<CommentEntityDto> getCommentsForPost(
+            @PathVariable Long id,
+            Pageable pageable) {
+
+        return commentService.findByPostId(id, pageable);
     }
 
     @PostMapping
