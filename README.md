@@ -156,12 +156,12 @@ docker login
 
 Tag imagine:
 ```properties
-docker tag blog-app:1.0 yourdockerhubusername/blog-app:1.0
+docker tag blog-app:1.0 username/blog-app:1.0
 ```
 
 Push pe Docker Hub:
 ```properties
-docker push yourdockerhubusername/blog-app:1.0
+docker push username/blog-app:1.0
 ```
 
 Imaginea este acum disponibilă pe Docker Hub.
