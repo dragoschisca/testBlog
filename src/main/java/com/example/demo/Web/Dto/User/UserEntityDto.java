@@ -17,15 +17,4 @@ public class UserEntityDto {
         this.lastName = lastName;
         this.email = email;
     }
-
-    public static UserEntityDto fromEntity(UserEntity entity) {
-        return new UserEntityDto(
-                entity.getId(),
-                entity.getUsername(),
-                entity.getFirstName(),
-                entity.getLastName(),
-                entity.getEmail()
-        );
-    }
-
 }
