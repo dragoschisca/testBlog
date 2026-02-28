@@ -31,4 +31,36 @@ public class CommentEntity {
     public String getFormattedCreateTime() {
         return createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public PostEntity getPost() {
+        return post;
+    }
+
+    public void setPost(PostEntity post) {
+        this.post = post;
+    }
 }
