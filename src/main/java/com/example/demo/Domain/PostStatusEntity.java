@@ -4,10 +4,16 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "post_status")
 public class PostStatusEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    @Id
+    @Column(name = "status", nullable = false, length = 50)
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -5,9 +5,14 @@ import jakarta.persistence.*;
 @Table(name = "user_status")
 public class UserStatusEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "status", nullable = false, length = 50)
+    private String status;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
