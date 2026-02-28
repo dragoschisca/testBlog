@@ -54,11 +54,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}/comments")
-    public Page<CommentEntityDto> getCommentsForPost(
+    public Page<CommentEntityDto> getCommentsByUser(
             @PathVariable Long id,
             Pageable pageable) {
 
-        return commentService.findByPostId(id, pageable);
+        return commentService.findByUserId(id, pageable);
     }
 
     @PostMapping
