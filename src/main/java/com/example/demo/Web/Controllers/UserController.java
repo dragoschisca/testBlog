@@ -1,5 +1,6 @@
 package com.example.demo.Web.Controllers;
 
+import com.example.demo.Domain.Enums.UserStatusEnum;
 import com.example.demo.Domain.UserEntity;
 import com.example.demo.Service.UserService;
 import com.example.demo.Web.Dto.PageResponse;
@@ -52,6 +53,16 @@ public class UserController {
     public ResponseEntity<UserEntityDto> create(@Valid @RequestBody CreateUserEntityDto user) {
         UserEntityDto created = userService.create(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<UserEntityDto> changeStatus(
+            @PathVariable Long id,
+            @RequestParam UserStatusEnum status) {
+
+        return ResponseEntity.ok(
+                userService.changeStatus(id, status)
+        );
     }
 
     @PutMapping("/{id}")

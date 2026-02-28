@@ -1,5 +1,6 @@
 package com.example.demo.Web.Controllers;
 
+import com.example.demo.Domain.Enums.PostStatusEnum;
 import com.example.demo.Domain.PostEntity;
 import com.example.demo.Service.PostService;
 import com.example.demo.Web.Dto.Post.CreatePostEntityDto;
@@ -36,6 +37,16 @@ public class PostController {
     @PostMapping
     public ResponseEntity<PostEntityDto> create(@RequestBody CreatePostEntityDto dto) {
         return ResponseEntity.ok(postService.create(dto));
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<PostEntityDto> changeStatus(
+            @PathVariable Long id,
+            @RequestParam PostStatusEnum status) {
+
+        return ResponseEntity.ok(
+                postService.changeStatus(id, status)
+        );
     }
 
     @PutMapping("/{id}")
