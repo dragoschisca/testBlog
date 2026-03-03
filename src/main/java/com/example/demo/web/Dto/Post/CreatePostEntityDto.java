@@ -1,4 +1,4 @@
-package com.example.demo.Web.Dto.Post;
+package com.example.demo.web.Dto.Post;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

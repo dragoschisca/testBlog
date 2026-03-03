@@ -1,13 +1,12 @@
-package com.example.demo.Web.Controllers;
+package com.example.demo.web.Controllers;
 
-import com.example.demo.Domain.CommentEntity;
-import com.example.demo.Domain.Enums.PostStatusEnum;
-import com.example.demo.Domain.PostEntity;
-import com.example.demo.Service.CommentService;
-import com.example.demo.Service.PostService;
-import com.example.demo.Web.Dto.Comment.CommentEntityDto;
-import com.example.demo.Web.Dto.Post.CreatePostEntityDto;
-import com.example.demo.Web.Dto.Post.PostEntityDto;
+import com.example.demo.domain.CommentEntity;
+import com.example.demo.domain.Enums.PostStatusEnum;
+import com.example.demo.domain.PostEntity;
+import com.example.demo.service.CommentService;
+import com.example.demo.service.PostService;
+import com.example.demo.web.Dto.Post.CreatePostEntityDto;
+import com.example.demo.web.Dto.Post.PostEntityDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

@@ -1,17 +1,15 @@
-package com.example.demo.Web.Controllers;
+package com.example.demo.web.Controllers;
 
-import com.example.demo.Domain.CommentEntity;
-import com.example.demo.Domain.Enums.UserStatusEnum;
-import com.example.demo.Domain.UserEntity;
-import com.example.demo.Service.CommentService;
-import com.example.demo.Service.UserService;
-import com.example.demo.Web.Dto.Comment.CommentEntityDto;
-import com.example.demo.Web.Dto.PageResponse;
-import com.example.demo.Web.Dto.User.CreateUserEntityDto;
-import com.example.demo.Web.Dto.User.UserEntityDto;
+import com.example.demo.domain.CommentEntity;
+import com.example.demo.domain.Enums.UserStatusEnum;
+import com.example.demo.domain.UserEntity;
+import com.example.demo.service.CommentService;
+import com.example.demo.service.UserService;
+import com.example.demo.web.Dto.PageResponse;
+import com.example.demo.web.Dto.User.CreateUserEntityDto;
+import com.example.demo.web.Dto.User.UserEntityDto;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

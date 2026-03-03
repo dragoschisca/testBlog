@@ -1,14 +1,14 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
 
-import com.example.demo.Domain.CommentEntity;
-import com.example.demo.Domain.PostEntity;
-import com.example.demo.Domain.UserEntity;
-import com.example.demo.Repository.CommentRepository;
-import com.example.demo.Repository.PostRepository;
-import com.example.demo.Repository.UserRepository;
-import com.example.demo.Web.Dto.Comment.CommentEntityDto;
-import com.example.demo.Web.Dto.Comment.CreateCommentEntityDto;
+import com.example.demo.domain.CommentEntity;
+import com.example.demo.domain.PostEntity;
+import com.example.demo.domain.UserEntity;
+import com.example.demo.repository.CommentRepository;
+import com.example.demo.repository.PostRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.web.Dto.Comment.CommentEntityDto;
+import com.example.demo.web.Dto.Comment.CreateCommentEntityDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -95,7 +95,6 @@ public class CommentService {
     }
 
     //FIND ALL COMMENTS BY POST ID
-// FIND ALL COMMENTS BY POST ID
     public Page<CommentEntity> findByPostId(Long postId, Pageable pageable) {
 
         postRepository.findById(postId)
@@ -105,7 +104,6 @@ public class CommentService {
     }
 
     //FIND ALL COMMENTS BY USER ID
-// FIND ALL COMMENTS BY USER ID
     public Page<CommentEntity> findByUserId(Long userId, Pageable pageable) {
 
         userRepository.findById(userId)

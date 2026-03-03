@@ -1,14 +1,14 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
-import com.example.demo.Domain.Enums.PostStatusEnum;
-import com.example.demo.Domain.PostEntity;
-import com.example.demo.Domain.PostStatusEntity;
-import com.example.demo.Domain.UserEntity;
-import com.example.demo.Repository.PostRepository;
-import com.example.demo.Repository.PostStatusRepository;
-import com.example.demo.Repository.UserRepository;
-import com.example.demo.Web.Dto.Post.CreatePostEntityDto;
-import com.example.demo.Web.Dto.Post.PostEntityDto;
+import com.example.demo.domain.Enums.PostStatusEnum;
+import com.example.demo.domain.PostEntity;
+import com.example.demo.domain.PostStatusEntity;
+import com.example.demo.domain.UserEntity;
+import com.example.demo.repository.PostRepository;
+import com.example.demo.repository.PostStatusRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.web.Dto.Post.CreatePostEntityDto;
+import com.example.demo.web.Dto.Post.PostEntityDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;

@@ -1,8 +1,7 @@
-package com.example.demo.Repository;
+package com.example.demo.repository;
 
-import com.example.demo.Domain.UserEntity;
-import com.example.demo.Web.Dto.User.UserEntityDto;
-import com.example.demo.Web.Dto.User.UserEntityProjection;
+import com.example.demo.domain.UserEntity;
+import com.example.demo.web.Dto.User.UserEntityDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,7 +18,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findByEmail(String email);
 
     @Query("""
-        SELECT new com.example.demo.Web.Dto.User.UserEntityDto(
+        SELECT new com.example.demo.web.Dto.User.UserEntityDto(
             u.id,
             u.username,
             u.firstName,
@@ -31,7 +30,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Page<UserEntityDto> findAllDtos(Pageable pageable);
 
     @Query("""
-        SELECT new com.example.demo.Web.Dto.User.UserEntityDto(
+        SELECT new com.example.demo.web.Dto.User.UserEntityDto(
             u.id,
             u.username,
             u.firstName,

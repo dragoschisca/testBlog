@@ -1,6 +1,6 @@
-package com.example.demo.Repository;
+package com.example.demo.repository;
 
-import com.example.demo.Domain.PostStatusEntity;
+import com.example.demo.domain.PostStatusEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PostStatusRepository extends JpaRepository<PostStatusEntity, String> {

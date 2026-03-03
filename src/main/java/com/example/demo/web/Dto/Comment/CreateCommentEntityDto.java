@@ -1,4 +1,4 @@
-package com.example.demo.Web.Dto.Comment;
+package com.example.demo.web.Dto.Comment;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

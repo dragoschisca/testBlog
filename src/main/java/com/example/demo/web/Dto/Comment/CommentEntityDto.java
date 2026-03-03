@@ -1,31 +1,24 @@
-package com.example.demo.Web.Dto.Comment;
+package com.example.demo.web.Dto.Comment;
 
-import com.example.demo.Domain.PostEntity;
-import com.example.demo.Domain.UserEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 
-import java.time.LocalDateTime;
+public record CommentEntityDto (
 
-public class CommentEntityDto {
+     Long id,
 
-    private Long id;
+     @NotBlank String content,
 
-    private String content;
+     @NotBlank String createdTime,
 
-    private String createdTime;
+     @NotBlank Long userId,
 
-    private Long userId;
+     @NotBlank Long postId
 
-    private Long postId;
-
-    public CommentEntityDto(Long id, String content, String createdTime, Long userId, Long postId) {
-        this.id = id;
-        this.content = content;
-        this.createdTime = createdTime;
-        this.userId = userId;
-        this.postId = postId;
-    }
-}
+//    public CommentEntityDto(Long id, String content, String createdTime, Long userId, Long postId) {
+//        this.id = id;
+//        this.content = content;
+//        this.createdTime = createdTime;
+//        this.userId = userId;
+//        this.postId = postId;
+//    }
+){}

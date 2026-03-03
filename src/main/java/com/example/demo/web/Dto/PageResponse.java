@@ -1,4 +1,4 @@
-package com.example.demo.Web.Dto;
+package com.example.demo.web.Dto;
 
 import java.util.List;
 

@@ -1,12 +1,12 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
-import com.example.demo.Domain.Enums.UserStatusEnum;
-import com.example.demo.Domain.UserEntity;
-import com.example.demo.Domain.UserStatusEntity;
-import com.example.demo.Repository.UserRepository;
-import com.example.demo.Repository.UserStatusRepository;
-import com.example.demo.Web.Dto.User.CreateUserEntityDto;
-import com.example.demo.Web.Dto.User.UserEntityDto;
+import com.example.demo.domain.Enums.UserStatusEnum;
+import com.example.demo.domain.UserEntity;
+import com.example.demo.domain.UserStatusEntity;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.UserStatusRepository;
+import com.example.demo.web.Dto.User.CreateUserEntityDto;
+import com.example.demo.web.Dto.User.UserEntityDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
