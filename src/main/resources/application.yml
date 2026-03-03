@@ -21,4 +21,4 @@ spring:
       password: admin
 
   liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.yml
+    change-log: db/changelog/db.changelog-master.xml
