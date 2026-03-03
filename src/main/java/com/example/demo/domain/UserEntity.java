@@ -1,4 +1,4 @@
-package com.example.demo.Domain;
+package com.example.demo.domain;
 import jakarta.persistence.*;
 
 @Entity
@@ -59,5 +59,16 @@ public class UserEntity {
         this.password = password;
     }
     public void setStatus(UserStatusEntity status) {this.status = status;}
-
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

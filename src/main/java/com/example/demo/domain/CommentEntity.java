@@ -1,4 +1,4 @@
-package com.example.demo.Domain;
+package com.example.demo.domain;
 
 import jakarta.persistence.*;
 
@@ -62,5 +62,20 @@ public class CommentEntity {
 
     public void setPost(PostEntity post) {
         this.post = post;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

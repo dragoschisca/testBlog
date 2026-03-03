@@ -1,4 +1,4 @@
-package com.example.demo.Domain.Enums;
+package com.example.demo.domain.Enums;
 
 public enum PostStatusEnum {
     DRAFT,
