@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-<include file="db/changelog/202600210100000-add-user-status.xml"/>
-<include file="db/changelog/202600210110000-add-user.xml"/>
-<include file="db/changelog/202600210120000-add-post-status.xml"/>
-<include file="db/changelog/202600210130000-add-post.xml"/>
-<include file="db/changelog/202600210140000-add-comment.xml"/>
-
+    <include file="db/changelog/202600210100000-add-user-status.xml"/>
+    <include file="db/changelog/202600210110000-add-user.xml"/>
+    <include file="db/changelog/202600210120000-add-post-status.xml"/>
+    <include file="db/changelog/202600210130000-add-post.xml"/>
+    <include file="db/changelog/202600210140000-add-comment.xml"/>
 </databaseChangeLog>
